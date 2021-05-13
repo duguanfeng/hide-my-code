@@ -1,6 +1,18 @@
 # hide-my-code README
+
+### ·我有些代码想隐藏起来，老有人站我后面，我不想让他看！
+### ·我有些代码想隐藏起来，但是折叠满足不了，比如一些特殊格式的注释！
+### ·我有些代码想隐藏起来，只是隐藏，源代码不用改变！
+
+## pick me
+
+## example
+![example1](./src/img/hide1.png)
+![example1](./src/img/hide2.png)
+![example1](./src/img/hide3.png)
 ## 配置方法
-可以将匹配到的代码进行隐藏：
+将想要隐藏的代码当成字符串，并放在hideList字段中，支持正则：
+
 ``` js
 // setting.json
 // 配置项：
@@ -28,4 +40,3 @@
 hide-my-code / 显示或隐藏我的代码
 ```
 
-**随缘更新!**

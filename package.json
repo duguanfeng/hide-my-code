@@ -1,12 +1,13 @@
 {
 	"name": "hide-my-code",
-	"displayName": "hide-my-code",
+	"displayName": "Hide My Code",
 	"publisher": "duguanfeng",
 	"description": "Hides code in files / 将匹配到的代码隐藏",
 	"repository": {
 		"url": "https://github.com/duguanfeng/hide-my-code"
 	},
-	"version": "0.0.1-beta",
+	"icon": "hide-my-code.png",
+	"version": "0.0.2",
 	"engines": {
 		"vscode": "^1.56.0"
 	},
