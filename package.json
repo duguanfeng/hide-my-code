@@ -7,7 +7,7 @@
 		"url": "https://github.com/duguanfeng/hide-my-code"
 	},
 	"icon": "hide-my-code.png",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"engines": {
 		"vscode": "^1.56.0"
 	},
@@ -15,7 +15,7 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:hide-my-code.HideUnhidecode"
+		"*"
 	],
 	"main": "./dist/extension.js",
 	"contributes": {

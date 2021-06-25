@@ -17,24 +17,21 @@ export function activate(context: vscode.ExtensionContext) {
 	});
 
 
-	// let config = vscode.workspace.getConfiguration();
-	// let hide = config.get("hide-my-code.hide") as boolean;
-	// let editor = vscode.window.activeTextEditor;
-	// if (editor) {
-	// 	FindRangesAndDecorate(editor, hide);
-	// }
+	let config = vscode.workspace.getConfiguration();
+	let hide = config.get("hide-my-code.hide") as boolean;
+	let editor = vscode.window.activeTextEditor;
+	if (editor) {
+		FindRangesAndDecorate(editor, hide);
+	}
+
 
 	let disposable = vscode.commands.registerCommand('hide-my-code.HideUnhidecode', async () => {
 		const editor = vscode.window.activeTextEditor;
 		if (editor) {
 			let config = vscode.workspace.getConfiguration();
 			let hide = !config.get("hide-my-code.hide") as boolean;
-			// if(isinit && hide) {
-			// 	isinit = false;
-			// 	hide = true;
-			// }
-			await config.update("hide-my-code.hide", hide, vscode.ConfigurationTarget.Global);
 			FindRangesAndDecorate(editor, hide);
+			await config.update("hide-my-code.hide", hide, vscode.ConfigurationTarget.Global);
 		}
 	});
 
@@ -53,16 +50,15 @@ function getConfigObj() {
 			"color": "red",
 			"border": "1px solid red"
 		}
-	}
+	};
 }
 function FindRangesAndDecorate(editor: vscode.TextEditor, hide: boolean) {
-
 	if (hide) {
-		const range: vscode.Range[] = []
+		const range: vscode.Range[] = [];
 
 		let config = vscode.workspace.getConfiguration();
 		let hideList = config.get("hide-my-code.hideList");
-		fillRange(editor,hideList,range)
+		fillRange(editor,hideList,range);
 
 		setDecoration(editor, range);
 	}
@@ -71,7 +67,7 @@ function FindRangesAndDecorate(editor: vscode.TextEditor, hide: boolean) {
 	}
 }
 function type(params:any) {
-	return Object.prototype.toString.call(params).slice(8,-1).toLowerCase()
+	return Object.prototype.toString.call(params).slice(8,-1).toLowerCase();
 
 }
 
@@ -85,11 +81,11 @@ function fillRange(editor: vscode.TextEditor,hideList:any,range:vscode.Range[]) 
 			const start = editor.document.positionAt(text.indexOf(v));
 			const end = editor.document.positionAt(i +v.length);
 			range.push(new vscode.Range(start,end));
-		})
+		});
 	}else if(type(hideList) === 'array'){
 		hideList.map((item:any) => {
-			fillRange(editor,item,range)
-		})
+			fillRange(editor,item,range);
+		});
 	}
 }
 
